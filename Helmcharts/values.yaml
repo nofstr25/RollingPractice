@@ -1,0 +1,32 @@
+enviroment:
+  name: nof1
+  label : music
+
+service:
+  name: nof1
+  type : LoadBalancer
+  port: 80
+
+deployment:
+  name: nof1
+  type: LoadBalancer
+  replicas: 3
+  container: 
+    name:  spring-music
+    image: yanivomc/spring-music
+    imageTag: :latest
+    port: 8080
+
+database: 
+  dbname: db_mysql
+  dbtable: music
+databaseTest: 
+  dbname: db_mysql-test
+  dbtable: music
+pods: 
+  image: yanivomc/spring-music
+
+
+food:
+  drink: beer
+  eat: Peanut Butter and Jelly sandwich  
