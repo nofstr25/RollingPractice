@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+  labels:
+    {{- include "spring.labels" . | nindent 4}}
+data:
+  dbname: {{ .Values.configmap.dbname }}
+  dbtable: {{ .Values.configmap.dbtable }}

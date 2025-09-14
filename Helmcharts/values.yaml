@@ -1,3 +1,19 @@
+configmap:
+  dbname: db_mysql
+  dbtable: music
+
+database: 
+  dbname: db_mysql
+  dbtable: music
+databaseTest: 
+  dbname: db_mysql-test
+  dbtable: music
+pods: 
+  image: yanivomc/spring-music
+food:
+  drink: beer
+  eat: Peanut Butter and Jelly sandwich
+
 enviroment:
   name: nof1
   label : music
@@ -16,17 +32,3 @@ deployment:
     image: yanivomc/spring-music
     imageTag: :latest
     port: 8080
-
-database: 
-  dbname: db_mysql
-  dbtable: music
-databaseTest: 
-  dbname: db_mysql-test
-  dbtable: music
-pods: 
-  image: yanivomc/spring-music
-
-
-food:
-  drink: beer
-  eat: Peanut Butter and Jelly sandwich  
