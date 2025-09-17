@@ -1,0 +1,15 @@
+kind: Service     
+apiVersion: v1     
+metadata:
+  name: {{ .Values.enviroment.name }}-service #from RELEASE NAME
+  labels:
+        {{- include "aws-monitor.labels" . | nindent 4}}
+spec:
+  selector:
+    app: {{- include "aws-monitor.labels" . | nindent 4}}
+  type: {{ .Values.deployment.type }}  #from values
+  ports:         
+  - name: http   
+    protocol: TCP
+    port: {{ .Values.service.port }}
+    targetPort: {{ .Values.service.port }}

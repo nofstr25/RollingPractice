@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.enviroment.name }}-deployment #from RELEASE NAME
+  labels:
+    {{- include "aws-monitor.labels" . | nindent 4}}
+spec:
+  selector: 
+    matchLabels:
+      {{- include "aws-monitor.labels" . | nindent 6}}
+  replicas: {{ .Values.deployment.replicas }}  #from values
+  template:
+    metadata:
+      labels:
+        {{- include "aws-monitor.labels" . | nindent 8}}
+    spec:
+      containers:
+      - name: {{ .Values.deployment.container.name}} #from values
+        image: {{ .Values.deployment.container.image }}:{{ .Values.deployment.container.imageTag }} #from values
+        ports:
+        - containerPort: {{ .Values.deployment.container.port }}
