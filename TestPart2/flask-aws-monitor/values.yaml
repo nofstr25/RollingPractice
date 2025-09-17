@@ -9,7 +9,6 @@ service:
 
 deployment:
   #name is always {enviroment.name}-suffix
-  type: LoadBalancer
   replicas: 3
   container: 
     name:  aws-monitoring-container

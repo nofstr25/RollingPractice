@@ -6,10 +6,10 @@ metadata:
         {{- include "aws-monitor.labels" . | nindent 4}}
 spec:
   selector:
-    app: {{- include "aws-monitor.labels" . | nindent 4}}
-  type: {{ .Values.deployment.type }}  #from values
+    {{- include "aws-monitor.labels" . | nindent 4}}
+  type: {{ .Values.service.type }}  #from values
   ports:         
   - name: http   
     protocol: TCP
     port: {{ .Values.service.port }}
-    targetPort: {{ .Values.service.port }}
+    targetPort: {{ .Values.deployment.container.port }}
