@@ -14,5 +14,5 @@ deployment:
   container: 
     name:  aws-monitoring-container
     image: nofstr25/rolling
-    imageTag: :latest
+    imageTag: latest
     port: 5001
