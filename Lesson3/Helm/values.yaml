@@ -1,0 +1,17 @@
+enviroment:
+  name: aws-monitoring
+  label : music
+
+service:
+  #name is always {enviroment.name}-suffix
+  type : LoadBalancer
+  port: 80
+
+deployment:
+  #name is always {enviroment.name}-suffix
+  replicas: 3
+  container: 
+    name:  aws-monitoring-container
+    image: nofstr25/rolling
+    imageTag: latest
+    port: 5001
